@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="debug" strict="true" name="XMLConfigTest"
+	packages="">
+	<Properties>
+		<Property name="filename">C:/logs/javamonitorweb/javamonitorweb.log
+		</Property>
+	</Properties>
+	<Filter type="ThresholdFilter" level="trace" />
+
+	<Appenders>
+		
+		<RollingFile name="RollingFile" fileName="${filename}" filePattern="${filename}-%d{MM-dd-yyyy}-%i.log">
+			<Policies>
+				<SizeBasedTriggeringPolicy size="10 MB" />
+			</Policies>
+			<PatternLayout pattern="%d %-5p [%t] %C - %m%n" />
+		</RollingFile>
+
+		<Appender type="List" name="List">
+		</Appender>
+	</Appenders>
+
+	<Loggers>
+
+		<Logger name="com.javamonitorweb.dao" level="debug" additivity="false">
+			<AppenderRef ref="RollingFile" />
+		</Logger>
+
+		<Logger name="com.javamonitorweb.service" level="debug"
+			additivity="false">
+			<AppenderRef ref="RollingFile" />
+		</Logger>
+
+		<Logger name="com.javamonitorweb.presentation" level="debug"
+			additivity="false">
+			<AppenderRef ref="RollingFile" />
+		</Logger>
+
+		<Root level="trace">
+			<AppenderRef ref="List" />
+		</Root>
+	</Loggers>
+
+</Configuration>

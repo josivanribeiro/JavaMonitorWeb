@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="debug" strict="true" name="XMLConfigTest" packages="">
+  <Properties>
+    <Property name="filename">C:/logs/javamonitorweb/javamonitorweb.log</Property>
+  </Properties>
+  <Filter type="ThresholdFilter" level="trace"/>
+ 
+  <Appenders>    
+    <Appender type="File" name="File" fileName="${filename}">
+      <Layout type="PatternLayout">
+        <Pattern>%d %-5p [%t] %C - %m%n</Pattern>
+      </Layout>
+    </Appender>
+    <Appender type="List" name="List">
+    </Appender>
+  </Appenders>
+ 
+  <Loggers>
+   
+    <Logger name="com.javamonitorweb.dao" level="debug" additivity="false">
+      <AppenderRef ref="File"/>
+    </Logger>
+    
+    <Logger name="com.javamonitorweb.service" level="debug" additivity="false">
+      <AppenderRef ref="File"/>
+    </Logger>
+    
+    <Logger name="com.javamonitorweb.presentation" level="debug" additivity="false">
+      <AppenderRef ref="File"/>
+    </Logger>
+ 
+    <Root level="trace">
+      <AppenderRef ref="List"/>
+    </Root>
+  </Loggers>
+ 
+</Configuration>

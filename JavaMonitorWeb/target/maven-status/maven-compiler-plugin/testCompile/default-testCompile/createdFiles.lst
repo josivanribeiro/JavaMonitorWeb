@@ -1,0 +1,3 @@
+com\javamonitorweb\service\impl\ServerServiceImplTest.class
+com\javamonitorweb\dao\impl\ServerDAOImplTest.class
+com\javamonitorweb\config\ConfigTest.class
